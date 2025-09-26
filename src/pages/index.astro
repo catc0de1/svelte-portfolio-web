@@ -1,52 +1,242 @@
 ---
+import Home from '../components/Home.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Portfolios from '../components/Portfolios.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
-import logo from "../assets/logo.webp";
-import cinematic from "../assets/cinematic3.mp4";
+import background from '../assets/background.svg';
+
+import DirectoryListingApp from '../assets/directory_listing_app.webp';
+import SelfService from '../assets/self_service.webp';
+import Portfolio from '../assets/portfolio.webp';
+import Server from '../assets/express_server.webp';
+import puriRaniLasem from '../assets/puri_ranilasem.webp';
+import forumApi from '../assets/forum_api.webp';
+import myDiary from '../assets/my_diary.webp';
+import bisaEnggress from '../assets/bisa_enggress.webp';
+import stmpApi from '../assets/stmp_api.webp';
+import myBlog from '../assets/software_techs_portal.webp';
+import quoteGenerator from '../assets/quote_generator.webp';
 
 export const prerender = true;
-export const sitemap = false;
 
-const currentYear = new Date().getFullYear();
+const portfolios = [
+  {
+    url: "https://github.com/CatC0de1/SurabayaBestPoint/tree/main",
+    imgSrc: DirectoryListingApp.src,
+    imgAlt: "Homepage of Directory Listing web apps",
+    title: "Directory Listing App",
+    desc: "SSR web apps with Express.js that displays a list of the best locations in Surabaya. This web allows users to search and browse various places.",
+    technologies: [
+      "ejs", 
+      "bootstrap",
+      "js",
+      "express", 
+      "mongodb", 
+      "passport"
+    ],
+    build: "",
+  },
+  {
+    url: "https://github.com/UniversitasNegeriSurabaya-Iyan165/oop_kafe-frontend",
+    imgSrc: SelfService.src,
+    imgAlt: "User interface of Self Service App in 'Lha Iki Kafe'",
+    title: "Prototype Self Service App",
+    desc: "Prototype of self-service application for cafe that makes it easy for customers to order independently. Run locally with local server.",
+    technologies: [
+      "ejs",
+      "sass",
+      "js",
+      "express", 
+      "mongodb", 
+      "webpack"
+    ],
+    build: ""
+  },
+  {
+    url: "https://github.com/CatC0de1/iyan-zuli-armanda",
+    imgSrc: Portfolio.src,
+    imgAlt: "Homepage of portfolio with nature panorama on my name",
+    title: "Personal Website",
+    desc: "Personal portfolio website showcasing my projects and skills as a developer. Built with Astro, React, and Tailwind for performance and a modern look.",
+    technologies: [
+      "astro", 
+      "react", 
+      "tailwind", 
+      "ts"
+    ],
+    build: "https://iyan-zuli-armanda.netlify.app/"
+  },
+  {
+    url: "https://github.com/UniversitasNegeriSurabaya-Iyan165/oop_kafe-backend",
+    imgSrc: Server.src,
+    imgAlt: "Server oop architecture source code look like on Visual Studio Code",
+    title: "Server with OOP",
+    desc: "Express.js server with OOP architecture for cafe application backend. Manage data in a structured and efficient manner.",
+    technologies: [
+      "js",
+      "express", 
+      "mongodb"
+    ],
+    build: ""
+  },
+  {
+    url: "https://github.com/CatC0de1/BisaEnggress-frontend",
+    imgSrc: bisaEnggress.src,
+    imgAlt: "Two UI of Bisa Enggress on Android, hompage on the left and chatting with bot on the right",
+    title: "Bisa Enggress",
+    desc: "Android application for learning English with interactive chatbot. Made with React Native CLI.",
+    technologies: [
+      "react",
+      "ts",
+      "ai"
+    ],
+    build: "",
+  },
+  {
+    url: "https://github.com/CatC0de1/PuriRaniLasem",
+    imgSrc: puriRaniLasem.src,
+    imgAlt: "Homepage of Puri Ranilasem Website",
+    title: "Puri Ranilasem",
+    desc: "Gallery website for branding makeup artist Puri Ranilasem. Showcasing portfolio of works and services in a visual and attractive way.",
+    technologies: [
+      "react", 
+      "vite",
+      "tailwind",
+      "framer",
+      "ts"
+    ],
+    build: "http://puri-ranilasem.vercel.app"
+  },
+  {
+    url: "https://github.com/CatC0de1/AdonisForumApi-backend",
+    imgSrc: forumApi.src,
+    imgAlt: "Server CLI command 'node ace' look like on Visual Studio Code",
+    title: "Forum API",
+    desc: "RESTful API server using AdonisJS for discussion forum application. Supports authentication, posting, and forum data management features efficiently.",
+    technologies: [
+      "adonis", 
+      "ts", 
+      "mysql"
+    ],
+    build: ""
+  },
+  {
+    url: "https://github.com/CatC0de1/MyDiary",
+    imgSrc: myDiary.src,
+    imgAlt: "Prototype homepage of MyDiary on desktop",
+    title: "Prototype MyDiary",
+    desc: "A prototype desktop diary application based on Tauri and React. Allows users to record daily activities with a simple and secure interface.",
+    technologies: [
+      "tauri", 
+      "rust", 
+      "react",
+      "sqlite",
+      "ts",
+      "tailwind"
+    ],
+    build: ""
+  },
+  {
+    url: "https://github.com/CatC0de1/EmailApi",
+    imgSrc: stmpApi.src,
+    imgAlt: "Server email api source code look like on Visual Studio Code",
+    title: "STMP server",
+    desc: "Simple main transfer protocol API server with Express.js to send gmail. Deployed on Render and pingable with GitHub Action.",
+    technologies: [
+      "express",
+      "ts",
+      "zod"
+    ],
+    build: "https://stmp-api.onrender.com"
+  },
+  {
+    url: "https://github.com/CatC0de1/myBlog",
+    imgSrc: myBlog.src,
+    imgAlt: "Hompage of Software Techs Portal Blogs",
+    title: "Dinamyc Blogsite",
+    desc: "Simple and fast SSG dinamyc blogs made width astro and markdonw as content. The blogs show software technologies content for developers from me.",
+    technologies: [
+      "astro",
+      "bootstrap",
+      "markdown",
+      "disqus"
+    ],
+    build: "https://software-techs-portal.vercel.app"
+  },
+  {
+    url: "https://github.com/CatC0de1/quoteGenerator",
+    imgSrc: quoteGenerator.src,
+    imgAlt: "UI Website Quote Generator",
+    title: "Quote Generator Website",
+    desc: "simple project made with Next.js, Tailwind CSS, and Framer motion. website that generates random quotes from great people",
+    technologies: [
+      "next",
+      "tailwind",
+      "framer",
+      "ts"
+    ],
+    build: "https://quote-generator-by-z.vercel.app/"
+  },
+  {
+    url: "https://github.com/CatC0de1/AdonisChatbot-backend",
+    imgSrc: forumApi.src,
+    imgAlt: "Server CLI command 'node ace' look like on Visual Studio Code",
+    title: "Chatbot REST API",
+    desc: "RESTful API server using AdonisJS for chatbot sistem. Supports ask question to chatbot via API, basic authentication for conversation, show or delete conversation from database.",
+    technologies: [
+      "adonis", 
+      "ts", 
+      "postgresql"
+    ],
+    build: ""
+  },
+];
 ---
 
 <Layout>
-  <div class="fixed h-screen w-screen bg-black overflow-hidden">
-
-    <svg class="absolute w-full h-full">
-      <defs>
-        <mask id="mask">
-          <rect width="100%" height="100%" fill="black" />
-
-          <image href={logo.src} x="50%" y="30%" class="logo" width="150" height="150" transform="translate(-75,-75)" />
-
-          <text x="50%" y="50%" text-anchor="middle" dy=".35em"
-            font-size="10vw" font-weight="bold" fill="white">
-            Iyan Zuli Armanda
-          </text>
-        </mask>
-      </defs>
-    </svg>
-
-    <div class="absolute inset-0 w-full h-full" style="mask: url(#mask); -webkit-mask: url(#mask);">
-      <video autoplay loop muted playsinline class="w-full h-full object-cover">
-        <source src={cinematic} type="video/mp4" />
-      </video>
-    </div>
-
-  </div>
-
   <div>
-    <div class="
-			fixed bottom-[20%] left-1/2 transform -translate-x-1/2 w-[50%] 
-			flex flex-col items-center justify-center gap-5 
-			md:w-[30%] md:gap-10
-			lg:flex-row lg:w-[20%]
-		">
-      <a href="/fullstack" class="button px-8">Get Started</a>
-    </div>
-
-    <p class="fixed bottom-5 left-[10%] text-white text-sm z-10">
-      &copy; Zi {currentYear}
-    </p>
-  </div>
+		<img id="background" src={background.src} alt="" fetchpriority="high" />
+			<Home 
+				texts={["Frontend Developer", "Backend Developer", "Fullstack Developer"]} 
+			/>
+		<About 
+			title="I'm a Software Engineer"
+			text1="As a flexible fullstack developer, I excel in frontend, backend, and fullstack roles to create innovative, high-performance app solutions. With continuous learning and problem-solving, I strive to build impactful digital experiences."
+			text2="I'm passionate about web development, desktop development, mobile development, low level app, game development, and also cybersecurity."
+			images={[
+				{ src: "/images/sertif1.webp", alt: "Certified Developer from Alibaba Cloud" },
+				{ src: "/images/directoryListingApp.webp", alt: "Directory Listing App Certificate from codepolitan" }
+			]}
+		/>
+		<Skills/>
+		<Portfolios portfolios={portfolios} />
+		<Contact/>
+		<Footer />
+	</div>
 </Layout>
+
+
+<style>
+	#background {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		filter: blur(100px);
+	}
+</style>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Fullstack Development",
+    "description": "I'm a fullstack developer with modern technologies.",
+    "url": "https://iyan-zuli-armanda.netlify.app/fullstack/"
+  }
+</script>

@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --primary-color: #0070f3;
+  --secondary-color: #1e3a8a;
+  --background-color: #1c1c1c;
+  --text-color: #333;
+  --border-color: #c0c0c0;
+  --hover-color: #33a7ff;
+  --bg-color: rgba(28, 28, 28, 0.7); 
+
+  font-family: Lucida Sans Unicode, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* line-height: 1.5;
+  font-weight: 400; */
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .section {
+    @apply flex px-[10%] md:px-[15%] py-[10%] 
+    w-full;
+  }
+  
+  .head-section {
+    @apply text-center mb-[3%];
+  }
+
+  .main-title {
+    @apply text-3xl xl:text-4xl font-bold my-1;
+  }
+
+  .second-title {
+    @apply text-(--primary-color) font-bold;
+  }
+
+  .skills {
+    @apply flex flex-col gap-1 items-center;
+  }
+
+  .skills-info {
+    @apply flex flex-col gap-2;
+  }
+
+  .skill {
+    @apply text-xs flex flex-row gap-[3%] items-center;
+  }
+
+  .progress {
+    @apply flex flex-col w-50 md:w-62.5 gap-1;
+  }
+
+  .progress-bar {
+    @apply bg-(--text-color) h-2 w-full rounded-md overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply bg-(--primary-color) h-full transition-all duration-2000;
+  }
+
+  .navigation {
+    @apply text-(--border-color) hover:text-(--hover-color) transition ml-1
+    active:text-(--secondary-color);
+  }
+
+  .sosmed {
+    @apply flex items-center justify-center border-2 border-(--border-color) rounded-full
+    h-8.75 w-8.75 md:h-12.5 md:w-12.5
+    hover:border-(--primary-color) hover:bg-(--primary-color) transition
+    active:bg-(--secondary-color) active:border-(--secondary-color) active:shadow-md;
+  }
+
+  .button {
+    @apply text-white text-center bg-(--primary-color) rounded-lg 
+    py-2
+    text-base md:text-lg lg:text-xl xl:text-2xl
+    hover:bg-(--hover-color) hover:shadow-lg transition 
+    active:bg-(--secondary-color) active:shadow-md
+  }
+
+  .skill .logo svg {
+    width: 25px;
+    height: auto;
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateX(50px);
+  } to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.7s ease-out 0.2s forwards;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+} */

@@ -11,8 +11,6 @@
   let statusMessage = $state<{ text: string; type: 'success' | 'error' } | null>(null);
   let showPopup = $state(false);
 
-  const API_BASE_URL = '';
-
   function handleChange(e: Event) {
     const target = e.target as HTMLInputElement | HTMLTextAreaElement;
     formData = { ...formData, [target.name]: target.value };
@@ -25,25 +23,20 @@
     statusMessage = null;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/send-email/private`, {
+      const form = e.target as HTMLFormElement;
+      const formDataNetlify = new FormData(form);
+
+      const result = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: formDataNetlify,
       });
 
-      const result = await res.json();
-
-      if (result.success) {
+      if (result.ok) {
         formData = { user_name_sender: '', user_email_sender: '', message: '' };
         statusMessage = { text: "Message received. I'll get back to you soon.", type: 'success' };
         showPopup = true;
-      } else if (result.details) {
-        const detailText = result.details.map((d: any) => d.message).join(', ');
-        statusMessage = { text: `${detailText}`, type: 'error' };
-        showPopup = true;
       } else {
-        statusMessage = { text: `${result.error || 'Unknown error'}`, type: 'error' };
-        showPopup = true;
+        throw new Error('Submission failed');
       }
     } catch (error) {
       statusMessage = { text: 'Message failed to send! Please send message again in a few minutes', type: 'error' };
@@ -65,7 +58,21 @@
   });
 </script>
 
-<form class="flex flex-col items-center" onsubmit={sendEmail}>
+<form
+  class="flex flex-col items-center"
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  onsubmit={sendEmail}
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p hidden>
+    <label>
+      Don't fill this out: <input name="bot-field" />
+    </label>
+  </p>
+
   <div class="w-full md:w-[80%] space-y-4">
     <div class="form {appear ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-40'}">
       <label for="name" class="label">Name</label>
@@ -138,8 +145,34 @@
 
 <style>
   .form {
+    margin-bottom: 3%;
+    width: 100%;
     transition: opacity 0.5s ease, transform 0.5s ease;
   }
+
+  .label {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .input {
+    color: #000;
+    width: 100%;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.5rem;
+    --tw-ring-color: var(--border-color);
+  }
+
+  .input:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+    --tw-ring-color: var(--primary-color);
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
   .opacity-0.translate-y-40 {
     opacity: 0;
     transform: translateY(40px);

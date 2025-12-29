@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ContactForm from './partials/Contact.svelte';
+  import ContactForm from './partials/ContactForm.svelte';
   import TitleSection from './partials/TitleSection.svelte';
 </script>
 

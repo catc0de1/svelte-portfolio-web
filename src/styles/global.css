@@ -8,17 +8,20 @@
   --border-color: #c0c0c0;
   --hover-color: #33a7ff;
   --bg-color: rgba(28, 28, 28, 0.7); 
-}
 
-/* .swiper-button-next {
-  z-index: 1;
-  right: -40px;
-}
+  font-family: Lucida Sans Unicode, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* line-height: 1.5;
+  font-weight: 400; */
 
-.swiper-button-prev {
-  z-index: 1;
-  left: -40px;
-} */
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 @layer utilities {
   .section {
@@ -42,10 +45,6 @@
     @apply flex flex-col gap-1 items-center;
   }
 
-  .skills-title {
-    @apply font-semibold; 
-  }
-
   .skills-info {
     @apply flex flex-col gap-2;
   }
@@ -55,7 +54,7 @@
   }
 
   .progress {
-    @apply flex flex-col w-[200px] md:w-[250px] gap-1;
+    @apply flex flex-col w-50 md:w-62.5 gap-1;
   }
 
   .progress-bar {
@@ -73,7 +72,7 @@
 
   .sosmed {
     @apply flex items-center justify-center border-2 border-(--border-color) rounded-full
-    h-[35px] w-[35px] md:h-[50px] md:w-[50px]
+    h-8.75 w-8.75 md:h-12.5 md:w-12.5
     hover:border-(--primary-color) hover:bg-(--primary-color) transition
     active:bg-(--secondary-color) active:border-(--secondary-color) active:shadow-md;
   }
@@ -106,3 +105,10 @@
   opacity: 0;
   animation: fadeIn 0.7s ease-out 0.2s forwards;
 }
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+} */

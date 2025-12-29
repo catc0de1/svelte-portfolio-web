@@ -1,18 +1,7 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": {
-    "strict": true,
-    // "noImplicitAny": true,
-    // "strictNullChecks": true,
-    // "strictFunctionTypes": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

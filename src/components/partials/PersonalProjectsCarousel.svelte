@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { projects } from '@/data/projects.data';
+  import { personalProjects } from '@/data/projects.data';
 
   let currentIndex = $state(0);
   let itemsPerView = $state(3);
   let gap = 24;
   let maxIndex = $derived(
-    Math.max(0, projects.length - itemsPerView)
+    Math.max(0, personalProjects.length - itemsPerView)
 );
 
 
@@ -86,7 +86,7 @@
         transform: translateX(calc(24px - {currentIndex} * (var(--item-width) + var(--gap))));
       "
     >
-      {#each projects as project, index}
+      {#each personalProjects as project, index}
         <div class="carousel-item flex">
           <div class="project-card rounded-xl overflow-hidden shadow-lg border border-white/10 transition-all duration-300 group hover:shadow-2xl hover:border-(--primary-color)/50 hover:-translate-y-2 h-full w-full flex flex-col bg-linear-to-b from-white/10 to-white/5">
             <!-- Image Section -->
@@ -133,9 +133,9 @@
               
               <!-- Action Buttons -->
               <div class="flex gap-2 mt-auto flex-row justify-end items-center">
-                {#if project.build}
+                {#if project.product}
                   <a 
-                    href={project.build}
+                    href={project.product}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-white/10 text-white rounded-lg text-sm font-medium hover:bg-(--primary-color) hover:text-white transition-all duration-300 border border-white/20"
@@ -147,7 +147,7 @@
                   </a>
                 {/if}
                 <a 
-                  href={project.url}
+                  href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="w-1/2 flex items-center justify-center gap-2 px-3 py-2 bg-(--primary-color) text-white rounded-lg text-sm font-medium hover:bg-(--hover-color) hover:scale-105 transition-all duration-300 shadow-lg shadow-(--primary-color)/30"

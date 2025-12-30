@@ -8,7 +8,7 @@
     message: '',
   });
   let isSubmitting = $state(false);
-  let statusMessage = $state<{ text: string; type: 'success' | 'error' } | null>(null);
+  let statusMessage = $state<{ text: string; type: 'success' | 'error' | 'disable' } | null>(null);
   let showPopup = $state(false);
 
   function handleChange(e: Event) {
@@ -39,7 +39,7 @@
         throw new Error('Submission failed');
       }
     } catch (error) {
-      statusMessage = { text: 'Message failed to send! Please send message again in a few minutes', type: 'error' };
+      statusMessage = { text: 'This feature has been disabled due to free-tier limitations.', type: 'disable' };
       showPopup = true;
     } finally {
       isSubmitting = false;
@@ -132,7 +132,13 @@
       <div class="font-bold text-lg md:text-xl xl:text-2xl mb-2 {statusMessage.type === 'success' ? 'text-green-600' : 'text-red-600'}">
         {statusMessage.type === 'success' ? 'Success' : 'Failed'}
       </div>
-      <div class="mb-6 md:mb-4 text-base md:text-lg xl:text-xl">{statusMessage.text}</div>
+      <div class="mb-6 md:mb-4 text-base md:text-lg xl:text-xl">
+        {statusMessage.text}
+        {#if statusMessage.type === 'disable'}
+          <br />
+          Please contact me at <a class="text-blue-600" href="mailto:iyanzuli35@gmail.com">iyanzuli35@gmail.com</a>
+        {/if}
+      </div>
       <button
         class="px-4 py-2 bg-(--primary-color) text-white rounded-lg hover:bg-(--hover-color) active:shadow-xl active:bg-(--secondary-color) self-end"
         onclick={closePopup}

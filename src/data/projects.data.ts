@@ -1,6 +1,7 @@
 import projectDirectoryListingApp from './images/project-directory-listing-app.webp';
 import projectPersonalWeb from './images/project-personal-web.webp';
 import projectPersonalBlog from './images/project-personal-blog.webp';
+import projectSmtpApi from './images/project-smtp-api.webp';
 import projectBisaEnggress from './images/project-bisa-enggress.webp';
 import projectDiaryDesktopApp from './images/project-diary-desktop-app.webp';
 
@@ -104,8 +105,8 @@ export const projects: Projects[] = [
   },
   {
     url: "https://github.com/catc0de1/express-smtp-api",
-    imgSrc: certifExpress,
-    imgAlt: "Certificate of completion Express.js course by Codepolitan",
+    imgSrc: projectSmtpApi,
+    imgAlt: "Preview of Gmail template from SMTP",
     title: "SMTP API Server",
     desc: "Simple main transfer protocol API server with Express.js to send gmail.",
     technologies: [

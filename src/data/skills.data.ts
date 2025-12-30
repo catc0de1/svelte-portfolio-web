@@ -183,10 +183,6 @@ export const skillCategories: SkillCategory[] = [
         icon: jestIcon,
       },
       {
-        name: "Swagger",
-        icon: swaggerIcon,
-      },
-      {
         name: "Postman",
         icon: postmanIcon,
       }
@@ -232,6 +228,10 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "Meilisearch",
         icon: meilisearchIcon,
+      },
+      {
+        name: "Swagger",
+        icon: swaggerIcon,
       },
     ],
   },

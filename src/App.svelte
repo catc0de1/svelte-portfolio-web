@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import Home from './components/Home.svelte';
   import About from './components/About.svelte';
+  import Experience from './components/Experience.svelte';
   import Skills from './components/Skills.svelte';
   import Projects from './components/Projects.svelte';
   import Contact from './components/Contact.svelte';
@@ -42,6 +43,7 @@
     <About />
     <Skills />
     <Projects />
+    <Experience />
     <Contact />
   </main>
 

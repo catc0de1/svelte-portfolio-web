@@ -128,7 +128,6 @@ export const personalProjects: PersonalProjects[] = [
       { name: "Swagger", icon: swaggerIcon },
     ],
     repo: "https://github.com/catc0de1/express-smtp-api",
-    product: "https://iyan-zuli-armanda.netlify.app",
   },
   {
     imgSrc: projectPersonalBlog,

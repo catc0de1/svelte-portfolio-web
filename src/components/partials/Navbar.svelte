@@ -24,7 +24,7 @@
   });
 </script>
 
-<nav id="navbar" class="fixed w-full z-10 bg-(--bg-color) backdrop-blur-xs text-white py-3 md:py-5 transition-all duration-500 {isScrolled ? 'shadow-lg' : ''}">
+<nav id="navbar" class="fixed w-full z-100 bg-(--bg-color) backdrop-blur-xs text-white py-3 md:py-5 transition-all duration-500 {isScrolled ? 'shadow-lg' : ''}">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-around items-center">
       <a href="/" class="text-(--primary-color) font-black text-xl md:text-2xl lg:text-3xl">
@@ -35,6 +35,7 @@
         <a href="#about" id="navAbout" class="navbar">About</a>
         <a href="#skills" id="navSkills" class="navbar">Skills</a>
         <a href="#projects" id="navProjects" class="navbar">Projects</a>
+        <a href="#experiences" id="navExperiences" class="navbar">Experiences</a>
         <a href="#contact" id="navContact" class="navbar">Contact</a>
       </div>
       <div class="md:hidden">
@@ -65,6 +66,9 @@
       </span>
       <span>
         <a href="#projects" class="font-semibold navbar" onclick={closeMenu}>Projects</a>
+      </span>
+      <span>
+        <a href="#experiences" class="font-semibold navbar" onclick={closeMenu}>Experiences</a>
       </span>
       <span>
         <a href="#contact" class="font-semibold navbar" onclick={closeMenu}>Contact</a>        

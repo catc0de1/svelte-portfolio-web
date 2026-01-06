@@ -66,6 +66,9 @@
             - <a href="#projects" class="navigation">Projects</a>
           </span>
           <span>
+            - <a href="#experiences" class="navigation">Experiences</a>
+          </span>
+          <span>
             - <a href="#contact" class="navigation">Contact</a>
           </span>
         </div>

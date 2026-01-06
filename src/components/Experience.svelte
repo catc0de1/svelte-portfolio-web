@@ -101,11 +101,11 @@
   class="section flex-col lg:flex-row gap-10 lg:gap-16 items-start"
 >
   <div 
-    class="w-full lg:w-[40%] sticky top-24 lg:top-28 flex-shrink-0 overview-section lg:transition-all lg:duration-100 lg:ease-linear"
+    class="w-full lg:w-[40%] sticky top-24 lg:top-28 shrink-0 overview-section lg:transition-all lg:duration-100 lg:ease-linear"
     style={isLgScreen ? `opacity: ${overviewOpacity}` : ''}
   >
     <h2 class="second-title">
-      Experience
+      Experiences
     </h2>
     <h1 class="main-title pb-4">
       My Journey
@@ -116,14 +116,14 @@
     
   </div>
 
-  <div class="w-full lg:w-[60%] flex-shrink-0">
+  <div class="w-full lg:w-[60%] shrink-0">
     <div class="lg:relative lg:pl-10 lg:pr-2 pl-8 pr-2 relative">
-      <div class="absolute left-[9px] lg:left-[10.5px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[color:var(--primary-color)] to-[color:var(--secondary-color)] rounded-full"></div>
+      <div class="absolute left-2.25 lg:left-[10.5px] top-0 bottom-0 w-0.5 bg-linear-to-b from-(--primary-color) to-(--secondary-color) rounded-full"></div>
       
       {#each experiences as exp, index}
         <div class="relative mb-6 pl-0 lg:pl-0">
-          <div class="absolute left-[-31px] lg:left-[-36.5px] top-0 z-10">
-            <div class="w-4 h-4 bg-[color:var(--background-color)] border-2 border-[color:var(--primary-color)] rounded-full shadow-[0_0_0_3px_var(--bg-color)] transition-transform duration-300"></div>
+          <div class="absolute left-7.75 lg:left-[-36.5px] top-0 z-10">
+            <div class="w-4 h-4 bg-(--background-color) border-2 border-(--primary-color) rounded-full shadow-[0_0_0_3px_var(--bg-color)] transition-transform duration-300"></div>
           </div>
           
           <div 
@@ -134,9 +134,9 @@
             class:translate-x-[-30px]={!isVisible}
             style="transition-delay: {0.2 + (index * 0.2)}s"
           >
-            <div class="bg-white rounded-lg p-4 border border-[color:var(--border-color)] transition-all duration-300 hover:translate-x-2 hover:shadow-md">
+            <div class="bg-white rounded-lg p-4 border border-(--border-color) transition-all duration-300 hover:translate-x-2 hover:shadow-md">
               <div class="flex flex-wrap items-center gap-2 mb-2">
-                <span class="px-2.5 py-0.5 bg-[color:var(--primary-color)] text-white text-xs font-semibold rounded-full">
+                <span class="px-2.5 py-0.5 bg-(--primary-color) text-white text-xs font-semibold rounded-full">
                   {exp.yearPeriod}
                 </span>
                 <span class="px-2.5 py-0.5 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
@@ -145,14 +145,14 @@
               </div>
               
               <div class="flex flex-wrap items-center gap-1 mb-2">
-                <h3 class="text-base font-bold text-[color:var(--text-color)]">
+                <h3 class="text-base font-bold text-(--text-color)">
                   {exp.title}
                 </h3>
-                <span class="px-2 py-0.5 bg-[color:var(--secondary-color)]/10 font-medium text-[color:var(--secondary-color)] text-xs rounded-full border border-[color:var(--secondary-color)]/20">
+                <span class="px-2 py-0.5 bg-(--secondary-color)/10 font-medium text-(--secondary-color) text-xs rounded-full border border-(--secondary-color)/20">
                   {exp.jobType}
                 </span>
               </div>
-              <h4 class="text-sm font-semibold text-[color:var(--primary-color)] mb-2 hover:underline">
+              <h4 class="text-sm font-semibold text-(--primary-color) mb-2 hover:underline">
                 <a href={exp.companyUrl} target="_blank" rel="noopener">
                   {exp.company}
                 </a>
@@ -164,7 +164,7 @@
                 {exp.location}
               </p>
               
-              <ul class="text-gray-600 text-sm leading-relaxed mb-3 list-disc ps-5 space-y-1 marker:text-[color:var(--primary-color)]">
+              <ul class="text-gray-600 text-sm leading-relaxed mb-3 list-disc ps-5 space-y-1 marker:text-(--primary-color)">
                 {#each exp.description as desc}
                   <li class="pl-1">{desc}</li>
                 {/each}
@@ -172,7 +172,7 @@
               
               <div class="flex flex-wrap gap-1.5">
                 {#each exp.technologies as tech}
-                  <span class="px-2 py-0.5 bg-[color:var(--primary-color)]/10 text-[color:var(--primary-color)] text-xs font-medium rounded border border-[color:var(--primary-color)]/20 transition-all duration-200 hover:bg-[color:var(--primary-color)] hover:text-white">
+                  <span class="px-2 py-0.5 bg-(--primary-color)/10 text-(--primary-color) text-xs font-medium rounded border border-(--primary-color)/20 transition-all duration-200 hover:bg-(--primary-color) hover:text-white">
                     {tech}
                   </span>
                 {/each}

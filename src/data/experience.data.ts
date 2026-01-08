@@ -17,7 +17,7 @@ export const experiences: Experience[] = [
     id: 1,
     title: "Fullstack Developer",
     jobType: "Internship",
-    company: "PT Selaras Mitra Integra",
+    company: "PT Selaras Mitra Gemilang",
     companyUrl: "https://selarasmitraintegra.com/",
     yearPeriod: "2025",
     monthPeriod: 4,

@@ -122,7 +122,7 @@
       
       {#each experiences as exp, index}
         <div class="relative mb-6 pl-0 lg:pl-0">
-          <div class="absolute left-7.75 lg:left-[-36.5px] top-0 z-10">
+          <div class="absolute -left-7.5 lg:left-[-36.5px] top-0 z-10">
             <div class="w-4 h-4 bg-(--background-color) border-2 border-(--primary-color) rounded-full shadow-[0_0_0_3px_var(--bg-color)] transition-transform duration-300"></div>
           </div>
           

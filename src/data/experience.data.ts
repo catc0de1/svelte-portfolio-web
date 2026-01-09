@@ -30,6 +30,7 @@ export const experiences: Experience[] = [
       "Significantly reduced human error"
     ],
     technologies: ["TypeScript", "React", "Tailwind", "Material UI", "NestJS", "MySQL", "PostgreSQL", "Redis", "Nx", "Docker"],
-    location: "Surabaya, Indonesia"
+    location: "Surabaya, Indonesia",
+    certificates: "/certificates/selaras-intern-certificate.pdf"
   },
 ];
